@@ -1,0 +1,25 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    metrics.enabled: true
+    health:
+      show-details: always
+spring:
+  security.user:
+    name: admin
+    password: test
+  boot:
+    admin:
+      client:
+        username: admin
+        password: test
+        url: [http://localhost:8080]
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name}
+            user.password: ${spring.security.user.password}
+  application:
+    name: Songs Service
